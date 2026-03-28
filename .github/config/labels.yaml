@@ -1,5 +1,5 @@
-# .github/labels.yml
 # Centralized labels for Broetec organization
+# Manifest path: .github/config/labels.yaml
 
 - name: "area: cli"
   color: "fef2c0"
@@ -33,6 +33,10 @@
   color: "008672"
   description: "Extra attention is needed from the community."
 
+- name: "status: wontfix"
+  color: "ffffff"
+  description: "This will not be worked on."
+
 - name: "type: bug"
   color: "d73a4a"
   description: "Something isn't working."
@@ -56,7 +60,3 @@
 - name: "type: question"
   color: "d4c5f9"
   description: "Further information is requested."
-
-- name: "wontfix"
-  color: "ffffff"
-  description: "This will not be worked on."
