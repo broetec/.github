@@ -1,18 +1,17 @@
 name: Bug Report
-description: Report a bug encountered while running kubesure
+description: Report unexpected behavior in this repository
 labels: ["type: bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! 
-        Before submitting, please ensure you have tested with the latest version of **kubesure**.
+        Thanks for the report. Please try the **latest release** or **default branch** before submitting.
 
   - type: textarea
     id: problem
     attributes:
       label: What happened?
-      description: A clear and concise description of what the bug is.
+      description: A clear and concise description of the bug.
       placeholder: Tell us what went wrong...
     validations:
       required: true
@@ -22,8 +21,7 @@ body:
     attributes:
       label: How can we reproduce it?
       description: |
-        Please provide a minimal, reproducible example. 
-        If the bug is related to a specific YAML configuration, please paste it in the section below.
+        Minimal steps or commands. If the bug involves config files, use the field below (redact secrets).
       placeholder: |
         1. Run '...'
         2. Set config to '...'
@@ -32,60 +30,49 @@ body:
       required: true
 
   - type: textarea
-    id: yaml_example
+    id: config_snippet
     attributes:
-      label: Kubernetes / Kustomize YAML
+      label: Config, manifest, or sample input (optional)
       description: |
-        Provide the YAML file or Kustomization that triggers the behavior in kubesure.
-        **Remove any sensitive data (secrets, passwords) before pasting.**
+        Paste only what is needed to reproduce (e.g. YAML, JSON, `.env` excerpt).
+        **Remove secrets, tokens, and passwords.**
       render: yaml
       placeholder: |
-        apiVersion: v1
-        kind: ConfigMap
-        metadata:
-          name: example-bug
+        # Optional — only if relevant
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Debug output
+        From the project root, run `make debug-info` and paste the **full** output in the next field.
 
   - type: textarea
     id: debug_output
     attributes:
-      label: Debug Information
-      description: |
-        Please run the following command in your terminal and paste the output below.
-        This helps us understand your environment (OS, Python, Kustomize, etc).
-      value: |
-        <details>
-        <summary>Click to see the command to run</summary>
-
-        ```console
-        $ make debug-info
-        ```
-
-        </details>
-
-        ### Paste the output here:
-        ```text
-        
-        ```
+      label: Output of `make debug-info`
+      description: Paste the complete terminal output here.
+      render: bash
+      placeholder: "Paste output here..."
     validations:
       required: true
 
   - type: textarea
     id: logs
     attributes:
-      label: Relevant Logs
-      description: Paste any error messages from the console or `make test` output.
-      render: console
+      label: Relevant logs or errors
+      description: Console errors, stack traces, or `make test` output (redact sensitive data).
+      render: bash
     validations:
       required: false
 
   - type: checkboxes
     id: checks
     attributes:
-      label: Self-Check
+      label: Self-check
       options:
-        - label: I have removed sensitive information from my logs and YAMLs.
+        - label: I have removed sensitive information from logs and pasted material.
           required: true
-        - label: I am using the latest version of kubesure.
+        - label: I reproduced this on the latest release or default branch.
           required: false

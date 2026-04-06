@@ -19,6 +19,7 @@ body:
         - Documentation
         - CI/CD & DevOps
         - Infrastructure / Kubernetes Integrations
+        - Other
     validations:
       required: true
 

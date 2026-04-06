@@ -1,6 +1,5 @@
 name: Task / Refactor
 description: Technical improvements, documentation, or maintenance tasks
-labels: ["type: chore", "type: documentation", "type: improvement"]
 body:
   - type: markdown
     attributes:
@@ -8,12 +7,24 @@ body:
         ### Technical Task
         Use this for internal improvements that don't necessarily change the end-user functionality.
 
+  - type: dropdown
+    id: task_kind
+    attributes:
+      label: Task kind
+      description: "A type label (type: chore, documentation, or improvement) is applied automatically from this choice via Actions in this repository."
+      options:
+        - Chore / tooling / CI
+        - Documentation
+        - Refactor / internal improvement
+    validations:
+      required: true
+
   - type: input
     id: scope
     attributes:
       label: Scope
-      description: Briefly state which module or file is being updated.
-      placeholder: "e.g., Makefile, src/auth.py, CI Workflow"
+      description: Briefly state which module, path, or area is affected.
+      placeholder: "e.g., Makefile, src/auth.py, .github/workflows"
     validations:
       required: true
 
