@@ -75,6 +75,22 @@ test-coverage-ci: ## Run tests + coverage via docker; validate MIN_COVERAGE
 		exit 1; \
 	fi
 
+
+# ---- Debug & Info ------------------------------------------------------------
+.PHONY: debug-info
+debug-info: ## Generate a report of the local environment for bug reporting
+	@echo "=== <Repository> Debug Report ==="
+	@echo "Date: $$(date)"
+	@echo "OS: $$(uname -s -r)"
+	@echo "--- Tool Versions ---"
+	# Add specific commands to collect info
+	@echo "--- Project Info ---"
+	@echo "Project: $(API_CONTAINER_NAME)"
+	@echo "Path: $(PATH_PROJECT)"
+	@if [ -d .git ]; then echo "Git Branch: $$(git rev-parse --abbrev-ref HEAD)"; fi
+	@echo "============================="
+
+
 # ---- Help --------------------------------------------------------------------
 .PHONY: help
 help: ## Show this help

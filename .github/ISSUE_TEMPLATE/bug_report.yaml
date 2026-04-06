@@ -1,0 +1,91 @@
+name: Bug Report
+description: Report a bug encountered while running kubesure
+labels: ["type: bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! 
+        Before submitting, please ensure you have tested with the latest version of **kubesure**.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what went wrong...
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How can we reproduce it?
+      description: |
+        Please provide a minimal, reproducible example. 
+        If the bug is related to a specific YAML configuration, please paste it in the section below.
+      placeholder: |
+        1. Run '...'
+        2. Set config to '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: yaml_example
+    attributes:
+      label: Kubernetes / Kustomize YAML
+      description: |
+        Provide the YAML file or Kustomization that triggers the behavior in kubesure.
+        **Remove any sensitive data (secrets, passwords) before pasting.**
+      render: yaml
+      placeholder: |
+        apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: example-bug
+    validations:
+      required: false
+
+  - type: textarea
+    id: debug_output
+    attributes:
+      label: Debug Information
+      description: |
+        Please run the following command in your terminal and paste the output below.
+        This helps us understand your environment (OS, Python, Kustomize, etc).
+      value: |
+        <details>
+        <summary>Click to see the command to run</summary>
+
+        ```console
+        $ make debug-info
+        ```
+
+        </details>
+
+        ### Paste the output here:
+        ```text
+        
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: Paste any error messages from the console or `make test` output.
+      render: console
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Self-Check
+      options:
+        - label: I have removed sensitive information from my logs and YAMLs.
+          required: true
+        - label: I am using the latest version of kubesure.
+          required: false
