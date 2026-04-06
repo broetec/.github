@@ -8,11 +8,27 @@ body:
         Thanks for the report. Please try the **latest release** or **default branch** before submitting.
 
   - type: textarea
-    id: problem
+    id: description
     attributes:
-      label: What happened?
-      description: A clear and concise description of the bug.
-      placeholder: Tell us what went wrong...
+      label: Describe the bug
+      description: A clear and concise summary of what is wrong.
+      placeholder: Short overview of the problem...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
     validations:
       required: true
 
@@ -45,16 +61,18 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Debug output
-        From the project root, run `make debug-info` and paste the **full** output in the next field.
+        ### Environment
+        Prefer pasting the **full** output of `make debug-info` from the project root (when that target exists).
+        Otherwise list **OS**, **Python version**, and versions of tools involved (e.g. **Kustomize**, **Helm**, **kubectl**, Docker).
 
   - type: textarea
-    id: debug_output
+    id: environment
     attributes:
-      label: Output of `make debug-info`
-      description: Paste the complete terminal output here.
+      label: Environment details
+      description: |
+        Paste complete `make debug-info` output, **or** OS, Python, Kustomize/Helm/kubectl (and any other relevant tools).
       render: bash
-      placeholder: "Paste output here..."
+      placeholder: "Paste make debug-info output or list versions here..."
     validations:
       required: true
 
