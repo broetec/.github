@@ -1,12 +1,12 @@
 # Contributing Guide
 
-First of all, thank you for your interest in contributing to a **Broetec** project! 🎉
+First of all, thank you for your interest in contributing to a **Broetec** project.
 
-This document describes how to set up your development environment, run tests, and submit improvements. We standardize automation with a `Makefile`; the commands below apply to our **Python** projects. If this file was copied into a non-Python repository, adapt or skip sections that do not apply.
+This document describes how to set up your development environment, run tests, and submit improvements. Common workflows are exposed through the project `Makefile`, so you can rely on the same targets from repo to repo; the Makefile (or the repository README) is the source of truth for what each target runs.
 
 ---
 
-## 🚀 Initial Setup
+## Initial Setup
 
 ### 1. Fork and Clone
 
@@ -30,9 +30,7 @@ This document describes how to set up your development environment, run tests, a
 
 ### 2. Development Environment
 
-We use [uv](https://github.com/astral-sh/uv) for Python version and dependency management.
-
-- **Install everything (venv + dependencies):**
+- **Install everything (environment + dependencies):**
 
   ```bash
   make install
@@ -45,9 +43,11 @@ We use [uv](https://github.com/astral-sh/uv) for Python version and dependency m
   make pre-commit-install
   ```
 
+  Many repositories delegate installation to [uv](https://github.com/astral-sh/uv) or similar; if anything fails, inspect the `Makefile` or README for that project.
+
 ---
 
-## 🛠 Development Cycle
+## Development Cycle
 
 To maintain code quality, use the `Makefile` targets. Run `make` with no arguments to list available commands.
 
@@ -70,7 +70,7 @@ To maintain code quality, use the `Makefile` targets. Run `make` with no argumen
 
 ---
 
-## 📦 Submission Process
+## Submission Process
 
 1. **Discuss large changes first:** For substantial features or refactors, open an issue on **this repository** before investing heavy work, so direction and scope can align early.
 2. **Create a branch:** Use semantic prefixes (e.g. `feat/`, `fix/`, `docs/`).
@@ -90,13 +90,13 @@ To maintain code quality, use the `Makefile` targets. Run `make` with no argumen
 
 ---
 
-## ⚖️ Community Standards
+## Community Standards
 
 By participating in this project, you agree to abide by our [Code of Conduct](https://github.com/Broetec/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ---
 
-## 📬 Contact
+## Contact
 
 If you need help or have questions:
 
