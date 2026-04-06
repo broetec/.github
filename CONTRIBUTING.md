@@ -2,80 +2,104 @@
 
 First of all, thank you for your interest in contributing to a **Broetec** project! 🎉
 
-This document provides the technical guidelines to set up your development environment, run tests, and submit your improvements. Since we standardize our automation via `Makefile`, the commands below should work across all our Python projects.
+This document describes how to set up your development environment, run tests, and submit improvements. We standardize automation with a `Makefile`; the commands below apply to our **Python** projects. If this file was copied into a non-Python repository, adapt or skip sections that do not apply.
 
 ---
 
 ## 🚀 Initial Setup
 
 ### 1. Fork and Clone
+
 1. **Fork** this repository to your own GitHub account.
 2. Clone your fork locally:
-  ```bash
-  git clone [https://github.com/YOUR_USERNAME/](https://github.com/YOUR_USERNAME/)<PROJECT_NAME>.git
-  cd <PROJECT_NAME>
-  ```
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/<PROJECT_NAME>.git
+   cd <PROJECT_NAME>
+   ```
+
+3. **Stay up to date with upstream** (replace `Broetec` and `<PROJECT_NAME>` with the canonical owner and repo name):
+
+   ```bash
+   git remote add upstream https://github.com/Broetec/<PROJECT_NAME>.git
+   git fetch upstream
+   git merge upstream/main
+   ```
+
+   Use `upstream/<default-branch>` if the default branch is not `main`.
 
 ### 2. Development Environment
 
 We use [uv](https://github.com/astral-sh/uv) for Python version and dependency management.
 
-  * **Install everything (Venv + Dependencies):**
-    ```bash
-    make install
-    ```
-  * **Configure Git Hooks (Linter/Commits):**
-    This ensures your code follows our standards before every commit.
-    ```bash
-    make pre-commit-install
-    ```
+- **Install everything (venv + dependencies):**
 
------
+  ```bash
+  make install
+  ```
+
+- **Configure Git hooks (linter / commits):**  
+  This helps keep changes aligned with our standards before every commit.
+
+  ```bash
+  make pre-commit-install
+  ```
+
+---
 
 ## 🛠 Development Cycle
 
-To maintain code quality, please use the `Makefile` shortcuts. You can see all available commands by simply typing `make`.
+To maintain code quality, use the `Makefile` targets. Run `make` with no arguments to list available commands.
 
 ### Code Quality
 
-  * **Format and auto-fix issues:** `make format`
-  * **Validate linting rules:** `make lint`
+- **Format and auto-fix issues:** `make format`
+- **Validate linting rules:** `make lint`
 
 ### Testing and Coverage
 
-  * **Run tests locally:** `make test`
-  * **Run tests via Docker:** `make docker-test`
-  * **Validate Minimum Coverage (CI Check):**
-    ```bash
-    make test-coverage-ci
-    ```
-    > **Note:** The CI pipeline will fail if the code coverage is below the threshold defined in the Makefile (default: 90%).
+- **Run tests locally:** `make test`
+- **Run tests via Docker:** `make docker-test`
+- **Validate minimum coverage (same check as CI):**
 
------
+  ```bash
+  make test-coverage-ci
+  ```
 
-## 📦 Submission Process (Workflow)
+**Coverage threshold:** CI fails when coverage is below the value set in this repository’s `Makefile` (often **90%** by default). PRs are expected to meet that threshold unless maintainers agree otherwise.
 
-1.  **Create a Branch:** Use semantic prefixes (e.g., `feat/`, `fix/`, `docs/`).
-    ```bash
-    git checkout -b feat/your-feature-name
-    ```
-2.  **Develop:** Implement your changes and add corresponding tests.
-3.  **Validate:** Run `make format` and `make test` to ensure everything is correct.
-4.  **Commits:** Follow the [Conventional Commits](https://www.conventionalcommits.org/) standard (e.g., `feat: add open-search validation`).
-5.  **Pull Request:** Open a PR to the `main` branch. Clearly describe your changes and link any related Issues. Please fill out our standardized template: [**Pull Request Template**](https://github.com/Broetec/.github/blob/main/.github/pull_request_template.md)
-  > **Important:** Your PR will not be merged if the code coverage is below the **90%** threshold or if any tests fail.
+---
 
------
+## 📦 Submission Process
+
+1. **Discuss large changes first:** For substantial features or refactors, open an issue on **this repository** before investing heavy work, so direction and scope can align early.
+2. **Create a branch:** Use semantic prefixes (e.g. `feat/`, `fix/`, `docs/`).
+
+   ```bash
+   git checkout -b feat/your-feature-name
+   ```
+
+3. **Develop:** Implement your changes and add or update tests where relevant. Documentation-only contributions should still follow formatting and lint rules when the project defines them.
+4. **Validate:** Run `make format` and `make test` (and other targets your change needs) before opening a PR.
+5. **Commits:** Follow [Conventional Commits](https://www.conventionalcommits.org/) (e.g. `feat: add open-search validation`).
+6. **Pull request:** Open a PR against the default branch (usually `main`). Describe the change clearly and link related issues. Use our [pull request template](https://github.com/Broetec/.github/blob/main/.github/pull_request_template.md).
+
+**Merge requirements:** PRs are not merged while tests fail or coverage is below the threshold described under [Testing and Coverage](#testing-and-coverage).
+
+**Good first contributions:** When available, look for issues labeled `good first issue` or `help wanted`.
+
+---
 
 ## ⚖️ Community Standards
 
-By participating in this project, you agree to abide by our [**Code of Conduct**](https://github.com/Broetec/.github/blob/main/CODE_OF_CONDUCT.md)
+By participating in this project, you agree to abide by our [Code of Conduct](https://github.com/Broetec/.github/blob/main/CODE_OF_CONDUCT.md).
 
------
+---
 
 ## 📬 Contact
 
 If you need help or have questions:
 
-1.  **Technical issues/Questions:** Please [**open an issue**](https://github.com/Broetec/.github/tree/main/.github/ISSUE_TEMPLATE) using the appropriate template.
-2.  **Sensitive Matters:** For reporting Code of Conduct violations or security vulnerabilities, please use the contact email provided in the [Code of Conduct](https://github.com/Broetec/.github/blob/main/CODE_OF_CONDUCT.md).
+1. **Technical issues and questions:** Use the **Issues** tab on **this repository**. If GitHub offers templates, pick the one that fits (bug report, feature request, etc.).
+2. **Sensitive matters:** Report Code of Conduct concerns using the contact details in the [Code of Conduct](https://github.com/Broetec/.github/blob/main/CODE_OF_CONDUCT.md).
+3. **Security vulnerabilities:** Do not disclose them in public issues. Use the security reporting process described in this repository’s `SECURITY.md` if it exists; otherwise use the private contact channel indicated in the Code of Conduct.
