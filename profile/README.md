@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/broetec/broetec.github.io/refs/heads/main/assets/images/logos/logo-full-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/broetec/broetec.github.io/refs/heads/main/assets/images/logos/logo-full-light.svg">
-    <img alt="Broetec Logo" src="https://raw.githubusercontent.com/broetec/broetec.github.io/main/path/to/logo-light.svg" width="300">
+    <img alt="Broetec Logo" src="https://raw.githubusercontent.com/broetec/broetec.github.io/refs/heads/main/assets/images/logos/logo-full-light.svg" width="300">
   </picture>
 </p>
 # Welcome to Broetec 🚀
@@ -21,7 +21,8 @@ Broetec is an open-source organization dedicated to building reliable tools for 
 
 We believe in the power of collaboration. We are committed to building a transparent and welcoming community for SREs, DevOps Engineers, and Open Source enthusiasts.
 
-- **Contribute:** Check our global `CONTRIBUTING.md` in this repository to get started.
+- **Contribute:** Check our global [CONTRIBUTING.md](https://github.com/broetec/.github/blob/main/CONTRIBUTING.md) in this repository to get started.
+- **Security:** Report vulnerabilities privately as described in [`SECURITY.md`](https://github.com/broetec/.github/blob/main/SECURITY.md) (GitHub Security Advisories on the affected repo when available).
 - **Support:** Open an issue in the respective repository or contact us via email.
 
 ---
